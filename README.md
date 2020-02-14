@@ -1,11 +1,10 @@
 # RestAssuredSerenity Framework
 
-A sample maven project demonstrating automated API tests using RestAssured, JUnit and Serenity BDD.
+A sample maven project demonstrating automated API tests using RestAssured and Serenity BDD.
 ## Technology Stack
 
 - Java
 - Serenity BDD
-- JUnit
 - Maven
 - RestAssured
 

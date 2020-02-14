@@ -24,12 +24,12 @@ The project follows the standard directory structure used in most Serenity proje
 ```Gherkin
 src
   + main
-	+ java                        contains pojos of each json placeholder endpoint
+    + java                        contains pojos of each json placeholder endpoint
   + test
     + java                        Test runners, step definitions and supporting code
     + resources
       + features                  Feature files
-			Booking.feature
+         Booking.feature
 ```
 
 

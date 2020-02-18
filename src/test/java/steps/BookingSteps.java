@@ -7,9 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.Booking;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
-import org.junit.Ignore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,6 @@ public class BookingSteps {
     Booking booking = new Booking();
     String bookingId;
     List<Response> responseList = new ArrayList<>();
-    @Steps
     BookingEndPoints bookingEndPoints = new BookingEndPoints();
 
     @When("I add a booking in the API")
@@ -33,7 +30,6 @@ public class BookingSteps {
         bookingEndPoints.verifyResponseStatusCode(world.getResponse(), code);
     }
 
-    @Ignore()
     @Then("the booking requests response contains the correct json data")
     public void the_booking_requests_response_contains_the_correct_json_data() {
         if(ContentType.JSON.toString().contains(world.getResponse().contentType()) ||

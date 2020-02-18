@@ -1,9 +1,10 @@
 package endpoints;
 
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Step;
 import org.json.JSONObject;
 import org.junit.Assert;
 import utils.Constants;
@@ -23,7 +24,7 @@ public class BaseEndPoints {
      * Set Content-Type in header of the request as JSON
      */
     public RequestSpecification getRequestWithJSONHeaders() {
-        RequestSpecification r = RestAssured.given();
+        RequestSpecification r = SerenityRest.given();
         r.header("Content-Type", "application/json");
         return r;
     }
@@ -32,7 +33,7 @@ public class BaseEndPoints {
      * Set Content-Type in header of the request as XML
      */
     public RequestSpecification getRequestWithXMLHeaders() {
-        RequestSpecification r = RestAssured.given();
+        RequestSpecification r = SerenityRest.given();
         r.header("Content-Type", "application/xml");
         return r;
     }
@@ -74,12 +75,13 @@ public class BaseEndPoints {
 
     /**
      * Send request
-     * @param request
+     * @param request details for sending the request
      * @param requestType of the request. i.e GET, POST, PUT, DELETE, UPDATE
      * @param url to execute for the request
      * @param pojo if provided will be added to the body of request as JSON payload
      * @return response received from the service by sending the request
      */
+    @Step
     public Response sendRequest(RequestSpecification request, int requestType, String url, Object pojo) {
         Response response;
 
@@ -93,21 +95,21 @@ public class BaseEndPoints {
         switch (requestType) {
             case Constants.RequestType.POST_REQUEST:
                 if (request == null) {
-                    response = RestAssured.when().post(url);
+                    response = SerenityRest.when().post(url);
                 } else {
                     response = request.post(url);
                 }
                 break;
             case Constants.RequestType.DELETE_REQUEST:
                 if (request == null) {
-                    response = RestAssured.when().delete(url);
+                    response = SerenityRest.when().delete(url);
                 } else {
                     response = request.delete(url);
                 }
                 break;
             case Constants.RequestType.PUT_REQUEST:
                 if (request == null) {
-                    response = RestAssured.when().put(url);
+                    response = SerenityRest.when().put(url);
                 } else {
                     response = request.put(url);
                 }
@@ -115,7 +117,7 @@ public class BaseEndPoints {
             case Constants.RequestType.GET_REQUEST:
             default:
                 if (request == null) {
-                    response = RestAssured.when().get(url);
+                    response = SerenityRest.when().get(url);
                 } else {
                     response = request.get(url);
                 }

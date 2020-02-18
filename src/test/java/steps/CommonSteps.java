@@ -6,7 +6,7 @@ import org.eclipse.jetty.http.HttpStatus;
 import utils.Constants;
 
 public class CommonSteps {
-    private BaseEndPoints be = new BaseEndPoints();
+    BaseEndPoints be = new BaseEndPoints();
 
     @Given("Booking API is available")
     public void booking_API_is_available() {

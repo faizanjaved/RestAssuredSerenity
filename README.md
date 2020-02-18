@@ -19,6 +19,20 @@ We are using Restful-Booker APIs as the Application Under Test.
 
 * URL : https://restful-booker.herokuapp.com/
 
+## The project directory structure
+The project follows the standard directory structure used in most Serenity projects:
+```Gherkin
+src
+  + main
+    + java                        contains pojos of each json placeholder endpoint
+  + test
+    + java                        Test runners, step definitions and supporting code
+    + resources
+      + features                  Feature files
+         Booking.feature
+```
+
+
 Following instructions will help you running the project. First, clone this project locally on your machine from the master branch.
 
 ### Installation and Test Execution
